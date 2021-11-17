@@ -4,12 +4,12 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sqlite3 = require('sqlite3').verbose();
 
-const indexRouter = require('.routes/index');
-const postsRouter = require('.routes/posts');
+// const indexRouter = require('.routes/index');
+// const postsRouter = require('.routes/posts');
 
 const app = express();
 
-let db =new sqlite3.Database(":memory", (err) => {
+let db =new sqlite3.Database(":memory:", (err) => {
     if (err) {
         return console.error(err.message);
     }
