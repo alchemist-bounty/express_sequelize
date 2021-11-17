@@ -34,4 +34,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/posts', postsRouter);
 app.use('/', indexRouter);
 
-module.exports = app;
+var server = app.listen(8081, function() {
+    console.log('App is listening');
+});
