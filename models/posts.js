@@ -13,3 +13,5 @@ const BlogPost = sequelize.define("post", {
         primaryKey: true
     }
 }, {timestamps: false});
+
+module.exports = BlogPost;

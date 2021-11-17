@@ -1,16 +1,25 @@
 var express = require('express');
 var router = express.Router();
 const postsController = require('../controllers/posts');
-// Task Homepage
+const Post = require('../models/posts');
+
+
+// Posts Homepage
 
 router.get('/', function(req, res, next) {
     res.send('Posts List');
-    console.log('Task Get');
+    return Post.findAll()
+        .then((posts) => res.send(posts))
+        .catch((err) => {
+            console.log('There was an error while retrieving', JSON.stringify(err));
+            return res.send(err);
+        })
+    console.log('Posts Get');
 });
 
 router.post('/', function(req, res, next) {
     const {firstName, lastName, phone} = req.body;
-    console.log('Task Post');
+    
 });
 
 router.delete('/:id', function(req, res, next) {
