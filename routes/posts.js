@@ -7,14 +7,14 @@ const Post = require('../models/posts');
 // Posts Homepage
 
 router.get('/', function(req, res, next) {
-    res.send('Posts List');
+    
     return Post.findAll()
         .then((posts) => res.send(posts))
         .catch((err) => {
             console.log('There was an error while retrieving', JSON.stringify(err));
             return res.send(err);
-        })
-    console.log('Posts Get');
+        });
+        
 });
 
 router.post('/', function(req, res, next) {
